@@ -1,0 +1,8 @@
+streamlit==0.76.0
+pandas==1.2.0
+ijson==3.1.4
+scipy==1.5.2
+spotipy==2.16.1
+tqdm==4.56.2
+numpy==1.19.2
+scikit_learn==0.24.2
