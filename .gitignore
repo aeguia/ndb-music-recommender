@@ -1,8 +1,0 @@
-# Spotify settings
-settings/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Flask stuff:
-data_adquisition/.cache-anaeguia
