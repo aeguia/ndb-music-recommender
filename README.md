@@ -4,7 +4,7 @@
 
 This project seeks to generate a Music Recommender System whose target user would be any attendee to Live Music Festival, Noches del Botánico (NDB).</p>NDB festival is characterized by the eclecticism of its musical commitment where in each edition all musical genres coexist, from flamenco to jazz, rock to blues through urban rhythms, electronics or any avant-garde music.</p>
 
-<div style="background-color:#e6b945">The present work is an academic project, not professional. Instructions for installing and executing the project are detailed here at README. All details concerning the Machine Learning Model development process can be found at TFM Memory - NDB Music Recommender document.</div>
+The present work is an academic project, not professional. Instructions for installing and executing the project are detailed here at README. All details concerning the Machine Learning Model development process can be found at [TFM_Memoria-NDB_Music_Recommender](https://github.com/aeguia/ndb-music-recommender/blob/main/TFM_Memoria-NDB_Music_Recommender.pdf) document.</p>
 
 #### Get Data
 
