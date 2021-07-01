@@ -4,7 +4,7 @@
 
 This project seeks to generate a Music Recommender System whose target user would be any attendee to Live Music Festival, Noches del Botánico (NDB).</p>NDB festival is characterized by the eclecticism of its musical commitment where in each edition all musical genres coexist, from flamenco to jazz, rock to blues through urban rhythms, electronics or any avant-garde music.</p>
 
-<div style="background-color:#e6b945">The present work is an academic project, not professional. Instructions for installing and executing the project are detailed here at README. All the details concerning the Machine Learning Model development process can be found at TFM Memory - NDB Music Recommender document.</div>
+<div style="background-color:#e6b945">The present work is an academic project, not professional. Instructions for installing and executing the project are detailed here at README. All details concerning the Machine Learning Model development process can be found at TFM Memory - NDB Music Recommender document.</div>
 
 #### Get Data
 
@@ -17,19 +17,21 @@ Follow Spotify guide to create one. [App Settings](https://developer.spotify.com
 > **settings.env file**  
 In order to not uploading your Spotify settings to Github, you can create a .env text file and place it into your local Github repository. Create a .gitignore file at the root folder of your project so the .env file ('../settings/') is not uploaded to the remote repository. The content of the .env text file should look like this:
 >
->{
-    >>"SPOTIPY_CLIENT_ID": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    >>"SPOTIPY_CLIENT_SECRET": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    >>"SPOTIPY_REDIRECT_URI": "http://xxxxxxxxxxxxxx",
-    >>"SPOTIPY_USER": "xxxxxx",  
-    >>"PLAYLIST_ID": "xxxxxxxxxxxxxxxxxxxxxxx"
+>{  
+>>"SPOTIPY_CLIENT_ID": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",  
+>>"SPOTIPY_CLIENT_SECRET": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",  
+>>"SPOTIPY_REDIRECT_URI": "http://xxxxxxxxxxxxxx",  
+>>"SPOTIPY_USER": "xxxxxx",  
+>>"PLAYLIST_ID": "xxxxxxxxxxxxxxxxxxxxxxx"  
 >}
 >
 > **Spotify Million Playlist Dataset**  
 The [MPD dataset](https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge) can be downloaded by registered participants from the [Resources](https://www.aicrowd.com/participants/sign_in) page of AIcrowd, download file: spotify_million_playlist_dataset.zip (5.39 GB).  
 Unzip json files and copied  at the root folder of your project in the path '../data/playlists'.
 
-#### Run Code Guide  
+#### Execution Guide  
+
+To run code i´ve created a Conda Virtual Environment with Python 3.8.5  installing extra libraries/packages detailed in requirements.txt file.
 
 * **NDBArtists_SpotifyDataAdquision.ipynb** (*/data_acquisition*), extracts NDB artists features using Spotify API.  
     ***Input:***
@@ -60,27 +62,29 @@ Unzip json files and copied  at the root folder of your project in the path '../
     ***Input:***  
   * *subset_mpdNDB_sparse_matrix.npz*, subset of MPD_NDB ratings - matrix processed.  
 
-* **test_popularity_model.ipynb**, train, test and evaluation of popularity Model.
+* **test_popularity_model.ipynb**, train, test and evaluation of popularity Model.  
     ***Input:***  
   * *./model/mpd_ndb.py*, MPD_NDB subset read data class.
   * *./model/model_popularity.py*, popularity model class.
   * *./model/evaluate_model.py*, evaluation metrics class.  
 
-* **test_knn_model.ipynb**, train, test and evaluation of k Nearest Neighbors Model.
+* **test_knn_model.ipynb**, train, test and evaluation of k Nearest Neighbors Model.  
     ***Input:***  
   * *./model/mpd_ndb.py*, MPD_NDB subset read data class.
   * *./model/model_knn.py*, k Nearest Neighbors model class.
   * *./model/evaluate_model.py*, evaluation metrics class.
   * *./results/model_scores.csv*, popularity and kNN models metric scores - processed dataframe.  
 
-* **NDB_Recommend.ipynb**, execute kNN final model fitted with NDB artist edition playlists.
+* **NDB_Recommend.ipynb**, execute kNN final model fitted with NDB artist playlists by edition using dataset complete MPD_NDB ratings.  
     ***Input:***  
   * *settings.env* (*/settings*), Spotify environment variables.
   * *ndb_mpd_tracks.compress*, NDB artists tracks - processed dataframe.
   * *tracks_ndb.compress*, MPD_NDB tracks processed dataframe.  
   * *matrix_playlistTrackRating_ndb.npz*, MPD_NDB ratings - matrix processed.  
 
-#### Test Front-End  
+#### NDB Recommender App
 
-Execute ndb_recommender.py file from root folder of the project.  
-> streamlit run ndb_recommender.py
+The front-end app uses Streamlit app framework and can be executed from root folder of the project.
+> streamlit run ndb_recommender.py  
+
+User has to select NDB Edition Year and number of tracks to be recommended and click "Recommend..." button.
