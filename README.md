@@ -87,4 +87,6 @@ To run code i´ve created a Conda Virtual Environment with Python 3.8.5  install
 The front-end app uses Streamlit app framework and can be executed from root folder of the project.
 > streamlit run ndb_recommender.py  
 
-User has to select NDB Edition Year and number of tracks to be recommended and click "Recommend..." button.
+User has to select NDB Edition Year and number of tracks to be recommended and click "Recommend..." button.  
+
+![NDB Recommender App!](./media/NDB_FrontEnd.png)
